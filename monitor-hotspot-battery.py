@@ -15,7 +15,7 @@ y = x.replace("%", "")
 
 def mynotify():
     notify2.init("Battery Notifier")
-    n = notify2.Notification(None, message='Battery usage', icon='/home/rmani/Downloads/red.png')
+    n = notify2.Notification(None, message='Battery usage', icon='/path/to/your/image')
     n.set_timeout(10000)
     n.update('Hotspot Battery Critical', 'Current charge level is '+ y+'%')
     n.show()
