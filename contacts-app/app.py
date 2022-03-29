@@ -19,7 +19,7 @@ def show_data():
             data_collection.insert_one({"name": name, "phone":phone})
             return("Contact has been Added.")
         else:
-            return("FIll the form correctly....!!!!")
+            return("Fill the form correctly....!!!!")
 
 @app.route('/search')
 def search():
@@ -31,6 +31,15 @@ def display():
     user = data_collection.find_one_or_404({'name' : name})
     return render_template('index.html', customer = user)
 
+@app.route('/delete')
+def delete():
+    return render_template('delete.html')
+
+@app.route('/drop')
+def drop():
+    name = request.args.get("z")
+    data_collection.delete_one({'name': name})
+    return ('User has been deleted.')
 
 if __name__ == '__main__':
    app.run(debug = True)
